@@ -90,6 +90,15 @@ final class General
                 $callback = [__CLASS__, 'render_settings']
             );
         });
+    /**
+     * Add Login form to Woocommerce login
+     */        
+        if ( class_exists( 'woocommerce' ) ) {
+             add_action( 'woocommerce_login_form', 'add_socialify_shortcode_to_login_form' );
+            }
+        function add_socialify_shortcode_to_login_form() {
+             echo do_shortcode('[socialify_login]');
+        }
     }
 
 
